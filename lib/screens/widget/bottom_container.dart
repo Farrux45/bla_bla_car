@@ -7,7 +7,15 @@ import 'package:flutter/material.dart';
 class BottomContainer extends StatelessWidget {
   final int? index;
   final String? name;
-  BottomContainer({Key? key, required this.index, required this.name})
+  final Function() onTap;
+  final Color? color;
+  final Color? color2;
+  BottomContainer(
+      {Key? key,
+      required this.index,
+      required this.name,
+      required this.onTap,
+      this.color, this.color2})
       : super(key: key);
 
   @override
@@ -22,7 +30,7 @@ class BottomContainer extends StatelessWidget {
         height: getHeight(60.0),
         width: getWidth(340.0),
         decoration: BoxDecoration(
-          color: ColorConst.white,
+          color: color ?? ColorConst.green,
           borderRadius: const BorderRadius.all(
             Radius.circular(10.0),
           ),
@@ -31,18 +39,14 @@ class BottomContainer extends StatelessWidget {
           child: Text(
             name ?? "",
             style: TextStyle(
-              color: ColorConst.green,
+              color:color2?? ColorConst.white,
               fontSize: getWidth(16.66),
               fontWeight: FontWeight.w600,
             ),
           ),
         ),
       ),
-      onTap: () {
-        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_) {
-          return SecondPageHome();
-        }), (route) => false);
-      },
+      onTap: onTap,
     );
   }
 }

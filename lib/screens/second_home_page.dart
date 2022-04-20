@@ -1,6 +1,8 @@
 import 'package:bla_bla_app/constant/color_const.dart';
 import 'package:bla_bla_app/constant/config_size.dart';
-import 'package:bla_bla_app/screens/widget/second_bottom_container.dart';
+import 'package:bla_bla_app/screens/phone_number_page.dart';
+import 'package:bla_bla_app/screens/widget/bottom_container.dart';
+
 import 'package:flutter/material.dart';
 
 class SecondPageHome extends StatefulWidget {
@@ -68,7 +70,15 @@ class _SecondPageHomeState extends State<SecondPageHome> {
                   left: getWidth(25.0),
                   top: getHeight(25.0),
                 ),
-                child: SecondBottomContainer(index: 1, name: "ПРОДОЛЖИТЬ",),
+                child: BottomContainer(
+                  index: 1,
+                  onTap: () {
+                    Navigator.pushNamed(context, '/phone');
+                  },
+                  name: "ПРОДОЛЖИТЬ",
+                  color: ColorConst.green,
+                  color2: ColorConst.white,
+                ),
               ),
             ],
           )

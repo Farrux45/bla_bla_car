@@ -74,7 +74,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             child: BottomContainer(
               index: 1,
+              onTap: () {
+                Navigator.pushNamed(context, '/second');
+              },
               name: "ПРОДОЛЖИТЬ",
+              color: Colors.white,
+              color2: ColorConst.green,
             ),
           ),
         ],

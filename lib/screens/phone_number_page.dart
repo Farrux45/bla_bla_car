@@ -1,8 +1,8 @@
 import 'package:bla_bla_app/constant/color_const.dart';
 import 'package:bla_bla_app/constant/config_size.dart';
 import 'package:bla_bla_app/main.dart';
+import 'package:bla_bla_app/screens/code_sms.dart';
 import 'package:bla_bla_app/screens/widget/bottom_container.dart';
-import 'package:bla_bla_app/screens/widget/second_bottom_container.dart';
 import 'package:flutter/material.dart';
 
 class PhoneNumberPage extends StatefulWidget {
@@ -17,6 +17,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: ColorConst.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,9 +101,17 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                     left: getWidth(25.0),
                     top: getHeight(25.0),
                   ),
-                  child: SecondBottomContainer(
+                  child: BottomContainer(
                     index: 1,
+                    onTap: () {
+                      Navigator.pushAndRemoveUntil(context,
+                          MaterialPageRoute(builder: (_) {
+                        return CodeFromSmsPage();
+                      }), (route) => false);
+                    },
                     name: "ОТПРАВИТЬ КОД",
+                    color: ColorConst.green,
+                    color2: ColorConst.white,
                   ),
                 ),
               ],

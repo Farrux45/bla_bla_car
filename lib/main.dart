@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
    MyApp({Key? key}) : super(key: key);
 
   final _forRouter = MyRouter();
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/sms',
+      initialRoute: '/profile',
       onGenerateRoute: _forRouter.getRoute,
     );
   }
