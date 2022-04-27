@@ -2,6 +2,7 @@ import 'package:bla_bla_app/constant/color_const.dart';
 import 'package:bla_bla_app/constant/config_size.dart';
 import 'package:bla_bla_app/screens/profile_page.dart';
 import 'package:bla_bla_app/screens/widget/bottom_container.dart';
+import 'package:bla_bla_app/screens/widget/text_style_widget.dart';
 
 import 'package:flutter/material.dart';
 
@@ -48,11 +49,7 @@ class _CodeFromSmsPageState extends State<CodeFromSmsPage> {
                 ),
                 child: Text(
                   "Код подтверждения",
-                  style: TextStyle(
-                    color: ColorConst.green,
-                    fontSize: getWidth(35.0),
-                    fontWeight: FontWeight.w700,
-                  ),
+                  style: TextStyleComp.boldStyleGreen(33.28)
                 ),
               ),
               Padding(
@@ -62,11 +59,7 @@ class _CodeFromSmsPageState extends State<CodeFromSmsPage> {
                 ),
                 child: Text(
                   "Введите код, отправленный по SMS ",
-                  style: TextStyle(
-                    color: ColorConst.grey,
-                    fontSize: getWidth(14.57),
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: TextStyleComp.regularStyleGreyy(14.57),
                 ),
               ),
               Padding(
@@ -105,11 +98,7 @@ class _CodeFromSmsPageState extends State<CodeFromSmsPage> {
                 ),
                 child: Text(
                   "Код не пришёл",
-                  style: TextStyle(
-                    color: ColorConst.grey,
-                    fontSize: getWidth(14.57),
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: TextStyleComp.regularStyleGreyy(14.57),
                 ),
               ),
             ],

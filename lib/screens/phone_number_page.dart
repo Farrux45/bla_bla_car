@@ -3,6 +3,7 @@ import 'package:bla_bla_app/constant/config_size.dart';
 import 'package:bla_bla_app/main.dart';
 import 'package:bla_bla_app/screens/code_sms.dart';
 import 'package:bla_bla_app/screens/widget/bottom_container.dart';
+import 'package:bla_bla_app/screens/widget/text_style_widget.dart';
 import 'package:flutter/material.dart';
 
 class PhoneNumberPage extends StatefulWidget {
@@ -47,11 +48,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                       left: getWidth(25.0), top: getHeight(30.0)),
                   child: Text(
                     "Телефон",
-                    style: TextStyle(
-                      color: ColorConst.green,
-                      fontSize: getWidth(33.23),
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: TextStyleComp.boldStyleGreen(33.23),
                   ),
                 ),
                 Padding(
@@ -61,11 +58,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                   ),
                   child: Text(
                     "Мы заботимся о вас, поэтому нам важно, чтобы каждый профиль был настоящим",
-                    style: TextStyle(
-                      color: ColorConst.grey,
-                      fontSize: getWidth(15.0),
-                      fontWeight: FontWeight.w300,
-                    ),
+                    style: TextStyleComp.regularStyleGrey(14.57),
                   ),
                 ),
                 Padding(
@@ -89,11 +82,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                   ),
                   child: Text(
                     "Данный номер могут использовать пользователи приложения для связи с вами",
-                    style: TextStyle(
-                      color: ColorConst.grey,
-                      fontSize: getWidth(15.0),
-                      fontWeight: FontWeight.w300,
-                    ),
+                    style: TextStyleComp.regularStyleGrey(14.57),
                   ),
                 ),
                 Padding(

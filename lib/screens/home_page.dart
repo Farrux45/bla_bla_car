@@ -2,6 +2,7 @@ import 'package:bla_bla_app/constant/color_const.dart';
 import 'package:bla_bla_app/constant/config_size.dart';
 import 'package:bla_bla_app/screens/second_home_page.dart';
 import 'package:bla_bla_app/screens/widget/bottom_container.dart';
+import 'package:bla_bla_app/screens/widget/text_style_widget.dart';
 
 import 'package:flutter/material.dart';
 
@@ -44,11 +45,8 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Text(
                   "Поиск попутчиков",
-                  style: TextStyle(
-                    color: ColorConst.white,
-                    fontSize: getWidth(33.31),
-                    fontWeight: FontWeight.w700,
-                  ),
+                  style: TextStyleComp.boldStyleGreen(33.31)
+                  
                 ),
               ],
             ),
@@ -60,11 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: EdgeInsets.only(left: getWidth(25.0)),
             child: Text(
               "Найдите подходящую поездку, попутчиков  или отправьте груз",
-              style: TextStyle(
-                color: ColorConst.white,
-                fontSize: getWidth(14.57),
-                fontWeight: FontWeight.w400,
-              ),
+              style: TextStyleComp.regularStyleGrey(14.57),
             ),
           ),
           Padding(

@@ -1,15 +1,30 @@
 import 'package:bla_bla_app/constant/color_const.dart';
 import 'package:bla_bla_app/constant/config_size.dart';
+import 'package:bla_bla_app/screens/search_treavel_page.dart';
+import 'package:bla_bla_app/screens/widget/bottom_nav_bar.dart';
+import 'package:bla_bla_app/screens/widget/list_view_widget.dart';
+import 'package:bla_bla_app/screens/widget/text_form_field_widget.dart';
+import 'package:bla_bla_app/screens/widget/text_style_widget.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SearchTravel extends StatefulWidget {
-  const SearchTravel({Key? key}) : super(key: key);
+  SearchTravel({Key? key}) : super(key: key);
 
   @override
   State<SearchTravel> createState() => _SearchTravelState();
 }
 
 class _SearchTravelState extends State<SearchTravel> {
+  final DateTime _now = DateTime.now();
+  final DateTime _firstDate = DateTime(2022);
+  final DateTime _lastDate = DateTime(2050);
+
+  bool isTrue = false;
+
+  var index;
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -37,74 +52,79 @@ class _SearchTravelState extends State<SearchTravel> {
             ),
             PhysicalModel(
               color: Colors.white,
-              elevation: 3,
+              elevation: 10.0,
               shadowColor: Colors.grey.shade400,
               borderRadius: BorderRadius.circular(15.0),
               child: Container(
                 width: getWidth(337.0),
-                height: getHeight(300.0),
+                height: getHeight(320.0),
                 child: SizedBox(
                   width: getWidth(45),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: getWidth(30.0),
-                          vertical: getHeight(10.0),
-                        ),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                              prefixIcon: Image.asset(
-                                "assets/images/Vector (1).png",
-                              ),
-                              hintText: "Откуда"),
-                        ),
-                      ),
-                      Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: getWidth(30.0),
-                              vertical: getHeight(8.0),
-                            ),
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                prefixIcon: Image.asset(
-                                  "assets/images/Vector (1).png",
-                                ),
-                                hintText: "Куда",
-                              ),
-                            ),
-                          ),
-                          Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: getWidth(30.0),
-                                  vertical: getHeight(8.0),
-                                ),
-                                child: TextFormField(
-                                  decoration: InputDecoration(
-                                    prefixIcon: InkWell(
-                                      child: Image.asset(
-                                        "assets/images/dateee.png",
-                                      ),
-                                    ),
-                                    hintText: "Сегодня",
-                                  ),
-                                  onTap: (){
-
-                                  },
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                  child: TextFormFieldWidget(
+                      now: _now,
+                      firstDate: _firstDate,
+                      lastDate: _lastDate,
+                      isTrue: isTrue),
                 ),
               ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    "Активные поиски",
+                    style: TextStyleComp.boldStyleGrey(20.0),
+                  ),
+                  Text(
+                    "ЗАКРЫТЬ ВСЕ",
+                    style: TextStyle(
+                        color: ColorConst.red,
+                        fontSize: getWidth(14.0),
+                        fontWeight: FontWeight.w500),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: getHeight(190.0),
+              child: const ListViewWidget(),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        height: getHeight(70),
+        width: getWidth(375),
+        decoration: BoxDecoration(
+          color: ColorConst.white,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20.0),
+            topRight: Radius.circular(20.0),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.shade400,
+              blurRadius: 6.0,
+              offset: Offset(1.0, 1.0),
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: const [
+            BottomNavBar(
+              icon: "assets/images/chat.png",
+              lable: "Активнные",
+            ),
+            BottomNavBar(
+              icon: "assets/images/glavniy.png",
+              lable: "Главная",
+            ),
+            BottomNavBar(
+              icon: "assets/images/profile.png",
+              lable: "Профиль",
             ),
           ],
         ),
@@ -112,3 +132,4 @@ class _SearchTravelState extends State<SearchTravel> {
     );
   }
 }
+

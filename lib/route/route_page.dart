@@ -21,7 +21,7 @@ class MyRouter {
       case '/profile':
         return MaterialPageRoute(builder: (_) => const ProfilePage());
       case '/search':
-        return MaterialPageRoute(builder: (_) => const SearchTravel());
+        return MaterialPageRoute(builder: (_) => SearchTravel());
     }
   }
 }
